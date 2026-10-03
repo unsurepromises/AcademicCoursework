@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Area of Triangle</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/works">Works</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <h1>Area of Triangle</h1>
+
+    <form action="/works/area/triangle" method="post">
+        <label for="base">Enter base:</label>
+        <input type="number" step="any" id="base" name="base" required>
+
+        <label for="height">Enter height:</label>
+        <input type="number" step="any" id="height" name="height" required>
+
+        <input type="submit" value="Compute">
+    </form>
+
+    {% if result %}
+    <p>Area of the triangle: {{ result }}</p>
+    {% endif %}
+</body>
+</html>

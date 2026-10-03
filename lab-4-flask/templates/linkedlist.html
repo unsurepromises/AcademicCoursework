@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Linked List UI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/works">Works</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <h1>Linked List Operations</h1>
+    <p>Interact with the singly linked list using the controls below:</p>
+
+    <!-- Visual List Chain -->
+    <h2>Current List</h2>
+    <div class="list-container">
+        <span class="node-tag head-tag">HEAD</span>
+        {% for node in nodes %}
+            <span class="chain-arrow">&rarr;</span>
+            <span class="node-box">{{ node }}</span>
+        {% endfor %}
+        <span class="chain-arrow">&rarr;</span>
+        <span class="node-tag null-tag">NULL</span>
+    </div>
+
+    {% if message %}
+    <p style="color: #f85149; margin-top: 10px;">{{ message }}</p>
+    {% endif %}
+
+    <hr style="border: 0; border-top: 1px solid #30363d; margin: 28px 0;">
+
+    <!-- Controls -->
+    <h2>Controls</h2>
+    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+        <!-- Add Node -->
+        <form action="/works/linkedlist" method="post" style="flex: 1; min-width: 250px;">
+            <input type="hidden" name="action" value="add">
+            <label for="node_value">Add Node (Append):</label>
+            <input type="text" id="node_value" name="node_value" placeholder="Enter value..." required>
+            <input type="submit" value="Append Node">
+        </form>
+
+        <!-- Delete Node -->
+        <form action="/works/linkedlist" method="post" style="flex: 1; min-width: 250px;">
+            <input type="hidden" name="action" value="delete">
+            <label for="delete_value">Delete Node by Value:</label>
+            <input type="text" id="delete_value" name="delete_value" placeholder="Enter value..." required>
+            <input type="submit" value="Delete Node" style="background-color: #da3633;">
+        </form>
+    </div>
+
+    <!-- Clear List -->
+    <form action="/works/linkedlist" method="post" style="max-width: 200px; padding: 12px; margin-top: 10px;">
+        <input type="hidden" name="action" value="clear">
+        <input type="submit" value="Clear List" style="background-color: #21262d; border: 1px solid #30363d;">
+    </form>
+</body>
+</html>

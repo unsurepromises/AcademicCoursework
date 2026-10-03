@@ -1,0 +1,95 @@
+/* Linked list design ayyy */
+.list-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    background-color: #161b22;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #30363d;
+    margin: 18px 0;
+    min-height: 48px;
+}
+
+.node-box {
+    background-color: #21262d;
+    border: 1px solid #58a6ff;
+    color: #f0f6fc;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-family: monospace;
+    font-size: 1rem;
+}
+
+.node-tag {
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+
+.head-tag {
+    background-color: #238636;
+    color: #ffffff;
+}
+
+.null-tag {
+    background-color: #30363d;
+    color: #8b949e;
+}
+
+.chain-arrow {
+    color: #58a6ff;
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.divider {
+    border: 0;
+    border-top: 1px solid #30363d;
+    margin: 28px 0;
+}
+
+.controls-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.controls-grid form {
+    flex: 1;
+    min-width: 260px;
+}
+
+.clear-form {
+    max-width: 220px;
+    padding: 12px;
+    margin-top: 12px;
+}
+
+.btn-delete {
+    background-color: #da3633 !important;
+}
+
+.btn-delete:hover {
+    background-color: #f85149 !important;
+}
+
+.btn-clear {
+    background-color: #21262d !important;
+    border: 1px solid #30363d !important;
+    color: #c9d1d9 !important;
+}
+
+.btn-clear:hover {
+    background-color: #30363d !important;
+    color: #ffffff !important;
+}
+
+.error-msg {
+    color: #f85149;
+    font-weight: 500;
+    margin-top: 8px;
+}

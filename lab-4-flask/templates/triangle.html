@@ -12,20 +12,22 @@
         <a href="/contact">Contact</a>
     </nav>
 
-    <h1>Area of Triangle</h1>
+    <main>
+        <h1>Area of Triangle</h1>
 
-    <form action="/works/area/triangle" method="post">
-        <label for="base">Enter base:</label>
-        <input type="number" step="any" id="base" name="base" required>
+        <form action="/works/area/triangle" method="post">
+            <label for="base">Enter base:</label>
+            <input type="number" step="any" id="base" name="base" required>
 
-        <label for="height">Enter height:</label>
-        <input type="number" step="any" id="height" name="height" required>
+            <label for="height">Enter height:</label>
+            <input type="number" step="any" id="height" name="height" required>
 
-        <input type="submit" value="Compute">
-    </form>
+            <input type="submit" value="Compute">
+        </form>
 
-    {% if result %}
-    <p>Area of the triangle: {{ result }}</p>
-    {% endif %}
+        {% if result %}
+        <p class="result">Area of the triangle: {{ result }}</p>
+        {% endif %}
+    </main>
 </body>
 </html>

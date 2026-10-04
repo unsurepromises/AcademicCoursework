@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Convert to Uppercase</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
     <nav class="navbar">
@@ -11,15 +12,17 @@
         <a href="/contact">Contact</a>
     </nav>
 
-    <h1>Convert String to Uppercase</h1>
+    <main>
+        <h1>Convert String to Uppercase</h1>
 
-    <form action="/works/touppercase" method="post">
-        <label for="inputString">Enter a string:</label>
-        <input type="text" id="inputString" name="inputString">
-        <input type="submit" value="Convert">
-    </form>
-    {% if result %}
-    <p>Converted string: {{ result }}</p>
-    {% endif %}
+        <form action="/works/touppercase" method="post">
+            <label for="inputString">Enter a string:</label>
+            <input type="text" id="inputString" name="inputString">
+            <input type="submit" value="Convert">
+        </form>
+        {% if result %}
+        <p class="result">Converted string: {{ result }}</p>
+        {% endif %}
+    </main>
 </body>
 </html>

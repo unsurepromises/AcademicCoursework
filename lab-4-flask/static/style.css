@@ -1626,3 +1626,277 @@ blockquote,
         font-size: 0.68rem;
     }
 }
+
+/* ==========================================================================
+   GLOBAL LINKS & INTERACTION (GITHUB PROFESSIONAL PALETTE)
+   ========================================================================== */
+a {
+    color: #58a6ff;
+    text-decoration: none;
+    transition: color 0.15s ease, text-decoration 0.15s ease;
+}
+
+a:visited {
+    color: #58a6ff;
+}
+
+a:hover,
+a:focus-visible {
+    color: #79c0ff;
+    text-decoration: underline;
+}
+
+.navbar a,
+.brand-wrapper,
+.btn-primary,
+.btn-plan,
+.channel-card,
+.works-list a {
+    text-decoration: none !important;
+}
+
+/* ==========================================================================
+   DEVELOPER SPEC CARD LAYOUT (GITHUB DARK AESTHETIC)
+   Centered 700px container, #161b22 cards, #30363d borders, 8px radius
+   ========================================================================== */
+
+.spec-container {
+    width: min(100%, 700px);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.spec-card {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 24px 28px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.spec-card:hover {
+    border-color: rgba(88, 166, 255, 0.4);
+}
+
+.spec-header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #21262d;
+}
+
+.spec-avatar {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1f6feb 0%, #238636 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ffffff;
+    border: 2px solid #30363d;
+    box-shadow: 0 0 12px rgba(88, 166, 255, 0.25);
+    flex-shrink: 0;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.contact-avatar {
+    background: linear-gradient(135deg, #238636 0%, #1f6feb 100%);
+    font-size: 1.4rem;
+}
+
+.spec-title {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: #f0f6fc;
+    margin: 0 0 4px 0;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+.spec-subtitle {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 0.88rem;
+    color: #8b949e;
+    margin: 0;
+}
+
+.spec-section-title {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #f0f6fc;
+    margin: 0 0 14px 0;
+    letter-spacing: -0.01em;
+}
+
+/* Metadata Key-Value Pairs / Utility Rows */
+.meta-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.meta-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: #0d1117;
+    border: 1px solid #21262d;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.meta-row:hover {
+    background: #161b22;
+    border-color: #30363d;
+}
+
+.meta-key {
+    color: #8b949e;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.meta-value {
+    color: #c9d1d9;
+    font-family: Consolas, "JetBrains Mono", "Liberation Mono", monospace;
+    font-size: 0.92rem;
+    font-weight: 600;
+}
+
+.badge-section {
+    padding: 3px 10px;
+    border-radius: 4px;
+    background: rgba(88, 166, 255, 0.12);
+    border: 1px solid rgba(88, 166, 255, 0.35);
+    color: #58a6ff;
+}
+
+/* Formal Blockquote with Side Border */
+.spec-quote {
+    margin: 0;
+    padding: 18px 22px;
+    background: #0d1117;
+    border: 1px solid #21262d;
+    border-left: 4px solid #58a6ff;
+    border-radius: 6px;
+    font-style: italic;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.quote-text {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 0.96rem;
+    line-height: 1.65;
+    color: #c9d1d9;
+    margin: 0 0 10px 0;
+}
+
+.quote-author {
+    display: block;
+    color: #8b949e;
+    font-size: 0.84rem;
+    font-style: normal;
+    font-weight: 600;
+    font-family: Consolas, "JetBrains Mono", monospace;
+    text-align: right;
+}
+
+/* Clickable Utility Cards (Interface Elements) */
+.contact-channels {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.channel-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    background: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    color: #c9d1d9;
+    text-decoration: none !important;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+}
+
+.channel-card:hover {
+    background: #21262d;
+    border-color: #58a6ff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(88, 166, 255, 0.15);
+    color: #ffffff;
+}
+
+.channel-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    background: #161b22;
+    border: 1px solid #30363d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #58a6ff;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+.channel-card:hover .channel-icon {
+    background: #1f6feb;
+    color: #ffffff;
+    border-color: #58a6ff;
+}
+
+.channel-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.channel-label {
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: #8b949e;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.channel-value {
+    font-family: Consolas, "JetBrains Mono", monospace;
+    font-size: 0.94rem;
+    font-weight: 600;
+    color: #58a6ff;
+}
+
+.channel-action {
+    margin-left: auto;
+    font-family: Consolas, monospace;
+    font-size: 0.82rem;
+    color: #8b949e;
+    transition: color 0.2s ease;
+}
+
+.channel-card:hover .channel-action {
+    color: #58a6ff;
+}

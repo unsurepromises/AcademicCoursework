@@ -1,26 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Profile Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
     <nav class="navbar">
         <a href="/">Home</a>
+        <a href="/profile">Profile</a>
         <a href="/works">Works</a>
         <a href="/contact">Contact</a>
     </nav>
-    <main>
-        <h1>Profile</h1>
-        <p><strong>Name:</strong> John Reimarc Sohitado</p>
-        <p><strong>Course:</strong> Computer Engineering</p>
-        <p><strong>Section:</strong> BSCpE 2-1</p>
-        <p><strong>Subject:</strong> Data Structures and Algorithms</p>
 
-        <h2>Favorite Motto</h2>
-        <blockquote>
-            "It never ceases to amaze me: we all love ourselves more than other people, but care more about their opinion than our own. -Marcus Aurelius"
-        </blockquote>
+    <main class="spec-container">
+        <!-- Developer Profile Spec Card -->
+        <section class="spec-card">
+            <div class="spec-header">
+                <div class="spec-avatar">
+                    <span>JS</span>
+                </div>
+                <div>
+                    <h1 class="spec-title">Profile</h1>
+                    <p class="spec-subtitle">Developer Specifications & Academic Metadata</p>
+                </div>
+            </div>
+
+            <div class="meta-grid">
+                <div class="meta-row">
+                    <span class="meta-key">Name</span>
+                    <span class="meta-value">John Reimarc Sohitado</span>
+                </div>
+                <div class="meta-row">
+                    <span class="meta-key">Course</span>
+                    <span class="meta-value">Computer Engineering</span>
+                </div>
+                <div class="meta-row">
+                    <span class="meta-key">Section</span>
+                    <span class="meta-value badge-section">BSCpE 2-1</span>
+                </div>
+                <div class="meta-row">
+                    <span class="meta-key">Subject</span>
+                    <span class="meta-value">Data Structures and Algorithms</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Favorite Motto Card -->
+        <section class="spec-card">
+            <h2 class="spec-section-title">Favorite Motto</h2>
+            <blockquote class="spec-quote">
+                <p class="quote-text">"It never ceases to amaze me: we all love ourselves more than other people, but care more about their opinion than our own."</p>
+                <cite class="quote-author">-Marcus Aurelius</cite>
+            </blockquote>
+        </section>
     </main>
 </body>
 </html>

@@ -1,59 +1,415 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Linked List UI</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexusNode™ Enterprise | Next-Gen Cloud-Native Pointer Orchestration Platform</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+    <!-- Top Telemetry Status Ticker -->
+    <header class="top-ticker">
+        <div class="ticker-left">
+            <span class="ticker-status-dot"></span>
+            <span>CLUSTER_HEALTH: <strong class="ticker-badge">99.999% OPERATIONAL</strong></span>
+            <span>|</span>
+            <span class="ticker-item">COMPLIANCE: <strong>SOC-2 TYPE II AUDITED</strong></span>
+        </div>
+        <div class="ticker-right">
+            <span class="ticker-item">VC_ROUND: <strong style="color: #ff0080;">$140M SERIES B</strong></span>
+            <span class="ticker-item">QUORUM: <strong>0/12 REGIONS SYNCED</strong></span>
+        </div>
+    </header>
+
+    <!-- Enterprise Navbar -->
     <nav class="navbar">
-        <a href="/">Home</a>
-        <a href="/profile">Profile</a>
-        <a href="/works">Works</a>
-        <a href="/contact">Contact</a>
+        <a href="/" class="brand-wrapper">
+            <div class="brand-icon">⬡</div>
+            <div class="brand-text">NexusNode™ <span>Enterprise</span></div>
+            <span class="brand-badge">Pro Max v4.82-LTS</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/profile">Profile</a>
+            <a href="/works">Works</a>
+            <a href="/contact">Contact</a>
+            <button type="button" class="nav-upgrade-btn trigger-upgrade-modal">
+                <span>⚡ Upgrade ($499/mo)</span>
+            </button>
+        </div>
     </nav>
 
+    <!-- Main Workspace -->
     <main>
-        <h1>Linked List Operations</h1>
-        <p>Interact with the singly linked list using the controls below:</p>
+        <!-- Hero Section -->
+        <section class="enterprise-hero">
+            <div class="hero-pill">
+                <span class="pill-dot"></span>
+                <span>AUTONOMOUS HEAP ALLOCATOR • AIR-GAPPED LINEAR POINTER ENGINE</span>
+            </div>
+            <h1>
+                NexusNode™ Enterprise<br>
+                <span class="gradient-text">Next-Gen Cloud-Native Pointer Orchestration Platform</span>
+            </h1>
+            <p class="hero-subhead">
+                SOC-2 Type II Certified Linear Memory Traversals with Zero-Trust Garbage Collection, Autonomous Reference Invalidation, and VC-Backed Speculative Node Materialization across Multi-Region Virtual Sandboxes.
+            </p>
 
-        <h2>Current List</h2>
-        <div class="list-container">
-            <span class="node-tag head-tag">HEAD</span>
-            {% for node in nodes %}
-                <span class="chain-arrow">&rarr;</span>
-                <span class="node-box">{{ node }}</span>
-            {% endfor %}
-            <span class="chain-arrow">&rarr;</span>
-            <span class="node-tag null-tag">NULL</span>
-        </div>
+            <!-- Real-time Stats Strip -->
+            <div class="hero-stats-strip">
+                <div class="stat-widget">
+                    <div class="stat-label">Active Heap Segments</div>
+                    <div class="stat-value">
+                        <span>{{ nodes|length }} Nodes</span>
+                        <span class="stat-delta">Allocated</span>
+                    </div>
+                </div>
+                <div class="stat-widget">
+                    <div class="stat-label">Traversal Complexity</div>
+                    <div class="stat-value">
+                        <span>O(1)*</span>
+                        <span class="stat-delta">*Marketed</span>
+                    </div>
+                </div>
+                <div class="stat-widget">
+                    <div class="stat-label">Mean Dereference Latency</div>
+                    <div class="stat-value">
+                        <span>0.041 µs</span>
+                        <span class="stat-delta">-99.4%</span>
+                    </div>
+                </div>
+                <div class="stat-widget">
+                    <div class="stat-label">Pointer Leak Probability</div>
+                    <div class="stat-value">
+                        <span>0.000%</span>
+                        <span class="stat-delta">Air-gapped</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        {% if message %}
-        <p class="error-msg">{{ message }}</p>
-        {% endif %}
+        <!-- Current Heap Graph Section -->
+        <section class="section-panel">
+            <div class="section-header-bar">
+                <div class="section-title">
+                    <span>Live Quantum Heap Visualization</span>
+                    <span class="section-tag">CLUSTER_GRAPH_VIEW</span>
+                </div>
+                <div class="heap-controls-info">
+                    <span>MEMORY_MODE: <strong>CONTIGUOUS_SIMULATED</strong></span>
+                    <span>•</span>
+                    <span>GARBAGE_COLLECTOR: <strong style="color: var(--telemetry-green);">ARMED</strong></span>
+                </div>
+            </div>
 
-        <hr class="divider">
+            <!-- Visual Node Chain -->
+            <div class="list-container">
+                <span class="node-tag head-tag">
+                    <span class="pulse-dot"></span>
+                    0x00000000 :: HEAD
+                </span>
 
-        <h2>Controls</h2>
-        <div class="controls-grid">
-            <form action="/works/linkedlist" method="post">
-                <input type="hidden" name="action" value="add">
-                <label for="node_value">Add Node (Append):</label>
-                <input type="text" id="node_value" name="node_value" placeholder="Enter value..." required>
-                <input type="submit" value="Append Node">
-            </form>
+                {% for node in nodes %}
+                    <div class="chain-wrapper">
+                        <span class="chain-arrow">&rarr;<span class="arrow-label">PTR_NEXT</span></span>
+                    </div>
+                    <div class="enterprise-node-box node-box">
+                        <div class="node-meta">NODE_0x{{ loop.index0 }} [ALLOCATED]</div>
+                        <div class="node-payload">{{ node }}</div>
+                        <div class="node-submeta">REF: 1 • SHA-256: VALID</div>
+                    </div>
+                {% endfor %}
 
-            <form action="/works/linkedlist" method="post">
-                <input type="hidden" name="action" value="delete">
-                <label for="delete_value">Delete Node by Value:</label>
-                <input type="text" id="delete_value" name="delete_value" placeholder="Enter value..." required>
-                <input type="submit" value="Delete Node" class="btn-delete">
-            </form>
-        </div>
+                <div class="chain-wrapper">
+                    <span class="chain-arrow">&rarr;<span class="arrow-label">PTR_TERM</span></span>
+                </div>
+                <span class="node-tag null-tag">0xFFFFFFFF :: NULL</span>
 
-        <form action="/works/linkedlist" method="post" class="clear-form">
-            <input type="hidden" name="action" value="clear">
-            <input type="submit" value="Clear List" class="btn-clear">
-        </form>
+                {% if not nodes %}
+                <div class="empty-heap-state">
+                    <div class="empty-icon">🛰️</div>
+                    <div class="empty-title">Zero Allocation State Detected</div>
+                    <div class="empty-desc">Heap memory currently vacant. Dispatch a payload below to trigger quantum node materialization.</div>
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- Exception / Audit Trail Display -->
+            {% if message %}
+            <div class="enterprise-alert-box">
+                <span class="alert-icon">⚠️</span>
+                <div class="alert-content">
+                    <strong style="color: #ff3366; font-family: var(--font-mono); font-size: 0.82rem;">RUNTIME_POINTER_EXCEPTION [ERR_404_PTR_DEREF]:</strong>
+                    <p class="error-msg">{{ message }}</p>
+                    <span class="audit-trail">Logged to Datadog, Sentry, and VC Board Audit Ledger. Incident ID: NN-94812</span>
+                </div>
+            </div>
+            {% endif %}
+        </section>
+
+        <!-- Pointer Mutation Controls Pipeline -->
+        <section class="section-panel">
+            <div class="section-header-bar">
+                <div class="section-title">
+                    <span>Pointer Mutation Pipeline</span>
+                    <span class="section-tag">ATOMIC_TRANSACTIONS</span>
+                </div>
+                <div class="heap-controls-info">
+                    <span>CONCURRENCY: <strong>LOCK-FREE</strong></span>
+                </div>
+            </div>
+
+            <div class="controls-grid">
+                <!-- Form 1: Add Node (Append) -->
+                <form action="/works/linkedlist" method="post" id="appendNodeForm">
+                    <input type="hidden" name="action" value="add">
+                    <div class="form-header-group">
+                        <label for="node_value">
+                            <span>⚡ Add Node (Append):</span>
+                        </label>
+                        <span class="form-subtext">Linear heap allocation with automatic pointer bridging</span>
+                    </div>
+                    <input type="text" id="node_value" name="node_value" placeholder="Enter node payload (e.g. 0xDEADBEEF)..." required autocomplete="off">
+                    <input type="submit" value="Append Node">
+                </form>
+
+                <!-- Form 2: Delete Node by Value -->
+                <form action="/works/linkedlist" method="post" id="deleteNodeForm">
+                    <input type="hidden" name="action" value="delete">
+                    <div class="form-header-group">
+                        <label for="delete_value">
+                            <span>🛡️ Delete Node by Value:</span>
+                        </label>
+                        <span class="form-subtext">Zero-trust memory unlinking & garbage reclaim</span>
+                    </div>
+                    <input type="text" id="delete_value" name="delete_value" placeholder="Target node value to purge..." required autocomplete="off">
+                    <input type="submit" value="Delete Node" class="btn-delete">
+                </form>
+            </div>
+
+            <!-- Clear Panel -->
+            <div class="clear-panel">
+                <div class="clear-info">
+                    <h4>Catastrophic Heap Purge</h4>
+                    <p>Reset the entire linked graph state to NULL. Irreversible without Enterprise Backup SLA.</p>
+                </div>
+                <form action="/works/linkedlist" method="post" class="clear-form" id="clearListForm">
+                    <input type="hidden" name="action" value="clear">
+                    <input type="submit" value="Clear List" class="btn-clear">
+                </form>
+            </div>
+        </section>
+
+        <!-- Enterprise Pricing Tier Section -->
+        <section class="pricing-section">
+            <div class="pricing-header">
+                <div class="hero-pill" style="margin-bottom: 8px;">
+                    <span class="pill-dot"></span>
+                    <span>MONETIZATION ARCHITECTURE</span>
+                </div>
+                <h2 class="pricing-title">Enterprise Pricing Matrix</h2>
+                <p class="pricing-subtitle">Scale your linear pointer orchestrations from pre-seed prototypes to Fortune 500 mission-critical architectures.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <!-- Community Tier -->
+                <div class="pricing-card">
+                    <div>
+                        <h3 class="plan-name">Community Tier</h3>
+                        <p class="plan-tagline">For hobbyists experimenting with low-frequency pointer operations.</p>
+                        <div class="plan-price-box">
+                            <span class="price-currency">$</span>
+                            <span class="price-amount">0</span>
+                            <span class="price-cycle">/month</span>
+                        </div>
+                        <ul class="plan-features-list">
+                            <li><span class="feat-icon">✓</span> Singly linked lists only</li>
+                            <li><span class="feat-icon">✓</span> Maximum 3 nodes capacity SLA</li>
+                            <li><span class="feat-icon">✓</span> Non-priority memory allocation</li>
+                            <li class="disabled"><span class="feat-icon">✕</span> Doubly & Circular pointer links</li>
+                            <li class="disabled"><span class="feat-icon">✕</span> 99.999% pointer uptime SLA</li>
+                            <li class="disabled"><span class="feat-icon">✕</span> O(1) marketing claims</li>
+                        </ul>
+                    </div>
+                    <button type="button" class="btn-plan btn-plan-outline" disabled style="opacity: 0.6; cursor: default;">
+                        Current Active Tier
+                    </button>
+                </div>
+
+                <!-- Enterprise Pro Max Tier -->
+                <div class="pricing-card featured">
+                    <span class="pricing-badge-featured">VC BACKED RECOMMENDED</span>
+                    <div>
+                        <h3 class="plan-name">Enterprise Pro Max</h3>
+                        <p class="plan-tagline">Full-stack pointer dominance with speculative quantum heap execution.</p>
+                        <div class="plan-price-box">
+                            <span class="price-currency">$</span>
+                            <span class="price-amount">499</span>
+                            <span class="price-cycle">/month (billed annually)</span>
+                        </div>
+                        <ul class="plan-features-list">
+                            <li><span class="feat-icon">✓</span> <strong>Unlocks Doubly and Circular nodes</strong></li>
+                            <li><span class="feat-icon">✓</span> <strong>O(1) marketing claims</strong> (regardless of actual complexity)</li>
+                            <li><span class="feat-icon">✓</span> <strong>99.999% pointer uptime SLA</strong> with quantum fallback</li>
+                            <li><span class="feat-icon">✓</span> Air-gapped SOC-2 Type II garbage collection</li>
+                            <li><span class="feat-icon">✓</span> Dedicated 24/7 Pointer Concierge on WhatsApp</li>
+                            <li><span class="feat-icon">✓</span> Unlimited speculative heap allocation</li>
+                        </ul>
+                    </div>
+                    <button type="button" class="btn-plan btn-plan-featured trigger-upgrade-modal">
+                        Upgrade to Pro Max Now ➔
+                    </button>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <!-- Fake Telemetry Dashboard (Fixed Bottom Bar) -->
+    <footer class="telemetry-dashboard">
+        <div class="telemetry-group">
+            <div class="telemetry-item">
+                <span class="telemetry-dot"></span>
+                <span>Cluster Health: <strong>99.999%</strong></span>
+            </div>
+            <div class="telemetry-item">
+                <span>⚡ Node Throughput: <strong class="telemetry-value-cyan" id="telemetry-mops">14.2 Mops/s</strong></span>
+            </div>
+            <div class="telemetry-item">
+                <span>🌐 Region: <strong>us-east-1 (Redundant)</strong></span>
+            </div>
+            <div class="telemetry-item">
+                <span>🧠 Heap Allocation: <strong id="telemetry-heap">42.8 GB / 128 TB</strong></span>
+            </div>
+        </div>
+        <div class="telemetry-group">
+            <div class="telemetry-item">
+                <span>GC Status: <strong id="telemetry-gc">IDLE (04:14)</strong></span>
+            </div>
+            <div class="telemetry-item">
+                <span class="telemetry-badge">PRO MAX ACTIVE</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Excessive Compliance Overlays: Cookie & Quantum Data Compliance -->
+    <aside class="compliance-overlay" id="complianceBanner">
+        <div class="compliance-info">
+            <div class="compliance-header">
+                <span>🛰️ ENTERPRISE COOKIE & QUANTUM DATA COMPLIANCE NOTICE (REV 94.2)</span>
+            </div>
+            <p class="compliance-text">
+                Pursuant to the Trans-Galactic Pointer Privacy Directive (TGPPD) and Section 404 of the VC Oversight Act of 2026, NexusNode™ uses 4,200 non-essential neuro-tracking telemetry cookies, predictive heap-profiling beacons, and biometric pointer-hover listeners to optimize your enterprise engagement metrics. By continuing to traverse this linked list, you irrevocably consent to continuous pointer surveillance across all dimensions.
+            </p>
+        </div>
+        <div class="compliance-actions">
+            <button type="button" class="btn-compliance-primary" id="btnAcceptCompliance">
+                Accept All 4,200 Trackers
+            </button>
+            <button type="button" class="btn-compliance-secondary" id="btnManageCompliance">
+                Manage Preferences
+            </button>
+            <button type="button" class="btn-compliance-reject" id="btnRejectCompliance">
+                Reject All (Downgrade to Assembly)
+            </button>
+        </div>
+    </aside>
+
+    <!-- Micro-Interaction: Cybernetic Loading Overlay -->
+    <div class="cyber-loading-overlay" id="cyberLoadingOverlay">
+        <div class="cyber-spinner-wrap">
+            <div class="cyber-ring-outer"></div>
+            <div class="cyber-ring-inner"></div>
+            <div class="cyber-core-pulse"></div>
+        </div>
+        <div class="cyber-loading-title">DISPATCHING POINTER PAYLOAD</div>
+        <div class="cyber-loading-sub" id="cyberLoadingSub">SYNCHRONIZING ZERO-TRUST MEMORY ALLOCATION...</div>
+    </div>
+
+    <!-- Toast Notifications Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Upgrade Modal Window -->
+    <div class="modal-backdrop" id="upgradeModal">
+        <div class="modal-window">
+            <button type="button" class="modal-close-btn" id="upgradeCloseBtn">&times;</button>
+            <h3 class="modal-title">Upgrade to Enterprise Pro Max</h3>
+            <p class="modal-desc">Authorize your enterprise pointer orchestration agreement. Net 90 invoice terms supported.</p>
+            
+            <form id="fakeUpgradeForm" style="background: transparent; border: none; padding: 0; box-shadow: none;">
+                <div class="modal-field">
+                    <label>Enterprise Entity Name:</label>
+                    <input type="text" placeholder="e.g. Acme Hyper-Scale Systems Inc." required>
+                </div>
+
+                <div class="modal-field">
+                    <label>Funding Tier / Payment Method:</label>
+                    <select class="modal-select">
+                        <option>VC Seed Convertible Note (SAFE - $20M Cap)</option>
+                        <option>Corporate Card (Silicon Valley Bank Legacy)</option>
+                        <option>Direct Wire via Cayman Islands Holding Co.</option>
+                        <option>Barter with 5,000 H100 GPU Hours</option>
+                    </select>
+                </div>
+
+                <div class="modal-field">
+                    <label>Syndicate Discount Code:</label>
+                    <input type="text" id="discountCodeInput" placeholder="Try 'YCOMBINATOR' or 'AIBUZZWORD'">
+                    <span id="discountMessage" style="font-family: var(--font-mono); font-size: 0.72rem; display: none; margin-top: 4px;"></span>
+                </div>
+
+                <div style="margin-top: 18px;">
+                    <button type="submit" class="btn-primary">
+                        Authorize $499.00 / Month Agreement ➔
+                    </button>
+                    <p style="font-size: 0.68rem; color: var(--text-tertiary); text-align: center; margin-top: 8px;">
+                        By authorizing, you agree to waive all right to O(N) algorithmic complaints forever.
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Cookie Preferences Modal Window -->
+    <div class="modal-backdrop" id="compliancePrefModal">
+        <div class="modal-window">
+            <button type="button" class="modal-close-btn" id="prefCloseBtn">&times;</button>
+            <h3 class="modal-title">Enterprise Tracking Preferences</h3>
+            <p class="modal-desc">Configure your 4,200 telemetry beacons. Note: disabling trackers may compromise your pointer SLA.</p>
+            
+            <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: rgba(9, 10, 15, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px;">
+                    <div>
+                        <div style="font-weight: 700; font-size: 0.82rem; color: #ffffff;">Quantum Pointer Telemetry</div>
+                        <div style="font-size: 0.7rem; color: var(--text-tertiary);">Tracks cursor wobble when selecting delete forms</div>
+                    </div>
+                    <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--telemetry-green); font-weight: 700;">[MANDATORY]</span>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: rgba(9, 10, 15, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px;">
+                    <div>
+                        <div style="font-weight: 700; font-size: 0.82rem; color: #ffffff;">VC Liquidity Forecasting Beacon</div>
+                        <div style="font-size: 0.7rem; color: var(--text-tertiary);">Monitors linked list size to determine Series C valuation</div>
+                    </div>
+                    <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--telemetry-green); font-weight: 700;">[MANDATORY]</span>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: rgba(9, 10, 15, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px;">
+                    <div>
+                        <div style="font-weight: 700; font-size: 0.82rem; color: #ffffff;">Remaining 4,198 Trackers</div>
+                        <div style="font-size: 0.7rem; color: var(--text-tertiary);">Cross-cluster session beacons and predictive heap profiling</div>
+                    </div>
+                    <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--telemetry-green); font-weight: 700;">[LOCKED BY IT]</span>
+                </div>
+            </div>
+
+            <button type="button" class="btn-primary" id="btnSavePreferences">
+                Confirm All 4,200 Preferences ➔
+            </button>
+        </div>
+    </div>
+
+    <!-- Enterprise Client Engine Script -->
+    <script src="{{ url_for('static', filename='enterprise.js') }}"></script>
 </body>
 </html>

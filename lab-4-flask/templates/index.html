@@ -1,20 +1,89 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Home Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexusNode™ Enterprise | Autonomous Compute Platform</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
+    <!-- Top Telemetry Status Ticker -->
+    <header class="top-ticker">
+        <div class="ticker-left">
+            <span class="ticker-status-dot"></span>
+            <span>CLUSTER_HEALTH: <strong class="ticker-badge">99.999% OPERATIONAL</strong></span>
+            <span>|</span>
+            <span class="ticker-item">AUDIT: <strong>SOC-2 TYPE II CERTIFIED</strong></span>
+        </div>
+        <div class="ticker-right">
+            <span class="ticker-item">SERIES B: <strong style="color: #ff0080;">$140M CAPITALIZED</strong></span>
+        </div>
+    </header>
+
     <nav class="navbar">
-        <a href="/">Home</a>
-        <a href="/profile">Profile</a>
-        <a href="/works">Works</a>
-        <a href="/contact">Contact</a>
+        <a href="/" class="brand-wrapper">
+            <div class="brand-icon">⬡</div>
+            <div class="brand-text">NexusNode™ <span>Enterprise</span></div>
+            <span class="brand-badge">Pro Max Edition</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/profile">Profile</a>
+            <a href="/works">Works</a>
+            <a href="/contact">Contact</a>
+        </div>
     </nav>
 
     <main>
-        <h1>Welcome to Our Website</h1>
-        <p>Developer utilities and data structure exercises.</p>
+        <section class="enterprise-hero">
+            <div class="hero-pill">
+                <span class="pill-dot"></span>
+                <span>ENTERPRISE SUITE • QUANTUM HEAP ENGINE</span>
+            </div>
+            <h1>Welcome to <span class="gradient-text">NexusNode™ Enterprise</span></h1>
+            <p class="hero-subhead">
+                Hyperscale developer utilities, mission-critical algebraic calculators, and next-generation linear pointer graph orchestration.
+            </p>
+
+            <div class="hero-stats-strip">
+                <div class="stat-widget">
+                    <div class="stat-label">System Availability</div>
+                    <div class="stat-value"><span>99.999%</span><span class="stat-delta">SLA Verified</span></div>
+                </div>
+                <div class="stat-widget">
+                    <div class="stat-label">Active Microservices</div>
+                    <div class="stat-value"><span>4 Compute Nodes</span><span class="stat-delta">Ready</span></div>
+                </div>
+                <div class="stat-widget">
+                    <div class="stat-label">Flagship Engine</div>
+                    <div class="stat-value"><span>Pointer Graph</span><span class="stat-delta">Pro Max</span></div>
+                </div>
+            </div>
+
+            <div style="margin-top: 24px;">
+                <a href="/works/linkedlist" class="btn-primary" style="display: inline-block; text-decoration: none; padding: 14px 28px; width: auto; font-size: 0.95rem;">
+                    Launch NexusNode™ Pointer Orchestrator ➔
+                </a>
+            </div>
+        </section>
     </main>
+
+    <footer class="telemetry-dashboard">
+        <div class="telemetry-group">
+            <div class="telemetry-item">
+                <span class="telemetry-dot"></span>
+                <span>Global Nodes: <strong>ONLINE</strong></span>
+            </div>
+            <div class="telemetry-item">
+                <span>Core Engine: <strong class="telemetry-value-cyan">NEXUS_CORE_V4</strong></span>
+            </div>
+        </div>
+        <div class="telemetry-group">
+            <div class="telemetry-item">
+                <span class="telemetry-badge">SOC-2 VERIFIED</span>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
